@@ -1,0 +1,7 @@
+[build]
+  command = "npm install --force && npm run build"
+
+[functions]
+
+[context.master.environment]
+NPM_FLAGS = "--force"
