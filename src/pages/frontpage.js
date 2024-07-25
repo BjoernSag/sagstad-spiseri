@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => (
           <h2>
             <Link to={project.slug.current}>{project.title}</Link>
           </h2>
-          <Image fluid={project.image.asset.fluid} alt={project.title} />
+          <Image fluid={project?.image?.asset?.fluid} alt={project.title} />
           <p style={{ marginTop: '1rem' }}>{project.subtitle}</p>
           <Link to={project.slug.current}>See more</Link>
         </li>
