@@ -471,7 +471,7 @@ class App extends Component {
         <div>
           <Link to={data.allSanityProject.edges[this.state.activePage].node.slug.current}>
             <div class="fixedImage" style={{ backgroundColor: data.allSanityProject.edges[this.state.activePage].node.boxbackgroundcolor }}>
-              <img style={{ height: '900px', width: '900px', maxWidth: '100%', maxHeight: '100%' }} src={project.image.asset.url} alt="test"/>
+              <img style={{ height: '900px', width: '900px', maxWidth: '100%', maxHeight: '100%' }} src={project?.image?.asset?.url} alt="test"/>
             </div>
           </Link>
         </div>

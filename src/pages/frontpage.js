@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => {
           <h2>
             <Link to={project.slug.current}>{project.title}</Link>
           </h2>
-          <img src={project.image.asset.url} alt={project?.title}/>
+          <img src={project?.image?.asset?.url} alt={project?.title}/>
           <p style={{ marginTop: '1rem' }}>{project.subtitle}</p>
           <Link to={project.slug.current}>See more</Link>
         </li>

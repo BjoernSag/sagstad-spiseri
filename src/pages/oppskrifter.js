@@ -76,7 +76,7 @@ const IndexPage = ({ data }) => {
       <div style={{ background: 'black' }}>
         {data.allSanityProject.edges.map(({ node: project }) => (
           <div class="fixedImage">
-            <img src={project.image.asset.url} alt={project?.title}/>
+            <img src={project?.image?.asset?.url} alt={project?.title}/>
           </div>
         ))}
       </div>
