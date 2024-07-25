@@ -18,20 +18,7 @@ export const query = graphql`
 query ($slug: String) {
 sanityProject(slug: {current: {eq: $slug}}) {
   title,
-  howto {
-      _key,
-      _type,
-      step,
-      image {
-        asset {
-          fluid(maxHeight: 400){
-            ...GatsbySanityImageFluid,
-          }
-        }
-      },
-    }
   mattags,
-  subtitle,
   tips,
   shortdescription,
   tiltak,
@@ -56,30 +43,7 @@ sanityProject(slug: {current: {eq: $slug}}) {
   time,
   author {
     name
-  },
-  image {
-    asset {
-      fluid(maxHeight: 600) {
-        src,
-        ...GatsbySanityImageFluid,
-      },
-      fixed {
-          src
-        },
-        path,
-    }
-  },
-  images {
-      asset {
-        fluid (maxHeight: 600) {
-          src,
-          sizes
-        }
-        fixed {
-          src
-        }
-      }
-    },
+  }
 }
 }
 `;
@@ -465,9 +429,9 @@ class ProjectTemplate extends Component {
 }
 
   hasImages = (data) => {
-    if(data.sanityProject.images.length >0){
+    if(data?.sanityProject?.images?.length >0){
       const images = [data.sanityProject.images.length];
-      images[0] = {original : data.sanityProject.image.asset.fluid.src,}
+      images[0] = {original : data?.sanityProject?.image?.asset?.fluid.src,}
       for(let i = 0; i<data.sanityProject.images.length; i++){
         images[1+i] = {
           original : data.sanityProject.images[i].asset.fluid.src,
@@ -484,7 +448,7 @@ class ProjectTemplate extends Component {
               />
     }
     else {
-      return <Image fluid={data.sanityProject.image.asset.fluid}  alt={data.sanityProject.title} />
+      return <Image fluid={data?.sanityProject?.image?.asset?.fluid}  alt={data.sanityProject.title} />
     }
   }
 
@@ -573,7 +537,7 @@ class ProjectTemplate extends Component {
         </div>
         <div>
         <h3>Fremgansmåte</h3>
-        {data.sanityProject.howto.map(({_key:key}) => (
+        {data?.sanityProject?.howto?.map(({_key:key}) => (
           <div>
                 {this.howToIndex(data.sanityProject.howto, key)}
           </div>
@@ -660,7 +624,7 @@ class ProjectTemplate extends Component {
         <br />
         {this.coloredLine('#A63446')}
         <center><h3>Fremgansmåte</h3></center>
-        {data.sanityProject.howto.map(({_key:key}) => (
+        {data?.sanityProject?.howto?.map(({_key:key}) => (
           <div>
                 {this.howToIndex(data.sanityProject.howto, key)}
           </div>

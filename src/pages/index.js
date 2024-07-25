@@ -39,15 +39,6 @@ allSanityProject {
       slug {
         current
       },
-      image{
-       asset {
-        _createdAt,
-        _id,
-        fluid {
-          ...GatsbySanityImageFluid,
-        }
-      }
-      },
     },
   },
   nodes {
@@ -177,8 +168,8 @@ this.setState(
     filterDropDownForm =(data) => {
       let nodesArray = [data.allSanityProject.nodes.length];
       let options= "<option value=alle></option>";
-      const unique = [...new Set(data.allSanityProject.nodes.map(item => item.author.slug.current))];
-      const uniqueNames = [...new Set(data.allSanityProject.nodes.map(item => item.author.name))];
+      const unique = [...new Set(data.allSanityProject.nodes.map(item => item?.author?.slug?.current))];
+      const uniqueNames = [...new Set(data?.allSanityProject?.nodes?.map(item => item?.author?.name))];
         for(let i = 0; i<unique.length; i++){
           options+= "<option value="+unique[i]+">"+uniqueNames[i]+"</option>";
         }
@@ -320,7 +311,7 @@ this.setState(
         if(this.state.authorOption === 'alle'){
          return <div className="frontPageContainer">
            <Image
-           style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project.image.asset.fluid}  alt={project.title} />
+           style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project?.image?.asset?.fluid}  alt={project.title} />
            <div className="frontPageCentered">
              <h2 >
                <Link
@@ -341,7 +332,7 @@ this.setState(
         }else if(project.author.slug.current === this.state.authorOption){
           return <div className="frontPageContainer">
             <Image
-            style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project.image.asset.fluid}  alt={project.title} />
+            style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project?.image?.asset?.fluid}  alt={project.title} />
             <div className="frontPageCentered">
               <h2 >
                 <Link
@@ -368,7 +359,7 @@ this.setState(
         if(this.state.authorOption === 'alle'){
          return<div className="frontPageContainer">
            <Image
-           style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project.image.asset.fluid}  alt={project.title} />
+           style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project?.image?.asset?.fluid}  alt={project.title} />
            <div className="frontPageCentered">
              <h2 >
                <Link
@@ -389,7 +380,7 @@ this.setState(
         }else if(project.author.slug.current === this.state.authorOption){
           return <div className="frontPageContainer">
             <Image
-            style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project.image.asset.fluid}  alt={project.title} />
+            style={{width: '100%', height: '350px', maxWidth:'100%', maxHeight:'50%' }}    fluid={project?.image?.asset?.fluid}  alt={project.title} />
             <div className="frontPageCentered">
               <h2 >
                 <Link
@@ -470,7 +461,7 @@ this.setState(
                   <div class="fixedImage" style={{backgroundColor:data.allSanityProject.edges[this.state.activePage].node.boxbackgroundcolor}}>
 
                   <Image
-                  style={{height:'900px', width:'900px', maxWidth:'100%', maxHeight:'100%' }}    fluid={data.allSanityProject.edges[this.state.activePage].node.image.asset.fluid}  alt={data.allSanityProject.edges[this.state.activePage].node.title} />
+                  style={{height:'900px', width:'900px', maxWidth:'100%', maxHeight:'100%' }}    fluid={data.allSanityProject.edges[this.state.activePage].node.image?.asset?.fluid}  alt={data.allSanityProject.edges[this.state.activePage].node.title} />
                   </div>
                   </Link>
                   </div>

@@ -13,20 +13,10 @@ allSanityProject {
   edges{
     node {
       title,
-      subtitle,
       id,
       slug {
         current
-      },
-      image{
-       asset {
-        _createdAt,
-        _id,
-        fluid {
-          ...GatsbySanityImageFluid,
-        }
       }
-      },
     }
   }
 }
@@ -74,7 +64,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
           {data.allSanityProject.edges.map(({node: project}) => (
           <div class="fixedImage">
             <Image
-              fluid={project.image.asset.fluid}
+              fluid={project?.image?.asset?.fluid}
               alt={project.title}
             />
           </div>
