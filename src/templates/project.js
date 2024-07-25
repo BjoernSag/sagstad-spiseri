@@ -454,7 +454,7 @@ class ProjectTemplate extends Component {
 
 /*Desktop specific layouts*/
   navContent = () => {
-    return  <div class="navGrid">
+    return  <div className="navGrid">
         <div>
           <Link to="/">
             <img
